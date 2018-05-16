@@ -17,7 +17,7 @@ h = 0.025
 
 data=np.array([[100], [100]])      #Populationsize 1 and 2
 timeline = [0]     #for storing time data, the first value is the starting time t0
-
+#Die rk4 in eine Funktion packen, ansonsten wird es unübersichtlich
 def k1(f, t, x):
     return f(t, x)
 
