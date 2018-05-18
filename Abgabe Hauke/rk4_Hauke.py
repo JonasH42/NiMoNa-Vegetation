@@ -4,22 +4,22 @@ Created on Wed May 16 17:09:11 2018
 
 @author: hauke
 """
-# Das Programm hart noch einen Mathematischen Fehler in der Umsetzung, sodass die Loesungen
+# Das Programm hat noch einen Mathematischen Fehler in der Umsetzung, sodass die Loesungen
 # nicht die erwartete Oszillation wiedergeben. ich sehe mir das ueber Pfingsten nochmal an. 
 import numpy as np
 import matplotlib.pyplot as plt
 
 #def Anfangswerte
 t0=0
-tend=5
+tend=1
 #parameter
 e1=2.9
 e2=0.8
 y1=0.02
 y2=2e-4
 h=0.025
-p1=1
-p2=2
+p1=9
+p2=9
 t=t0
 #butcher
 c1=1/6
@@ -30,7 +30,7 @@ c4=1/6
 p=[p1,p2]
 
 def f(t,p,E1=e1,E2=e2,Y1=y1,Y2=y2):
-    return np.array([p1*(E1-Y1*p2),-p2*(E2-Y2*p2)])
+    return np.array([p[0]*(E1-Y1*p2),-p[1]*(E2-Y2*p2)])
 
 
 
@@ -47,4 +47,5 @@ while(t<tend):
     plt.plot(t,p[1],'r.')
     print(t,p[0],p[1])#zur kontrolle 
     t=t+h
-
+plt.savefig('Räuber-Beute.pdf')
+plt.show()
