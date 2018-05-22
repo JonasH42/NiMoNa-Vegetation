@@ -1,10 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def P1(p1,p2,a,b):
+def fP1(p1,p2,a,b):
     return (p1*(a - b*p2))
 
-def P2(p1,p2,c,d):
+def fP2(p1,p2,c,d):
     return (-p2*(c - d*p1)) #return bedeutet sowas wie das er es wieder zurückschmeißt
                             #mit return kann ich mit der Funktion weiter rechnen
 #Definiere Größen
@@ -25,20 +25,20 @@ p2[0] = 20
 t[0] = 0
 
 for i in range(1,N_t):#läuft von 1 bis obere Rekursionszahl
-    k1 = P1(p1[i-1] , p2[i-1] , a , b)
-    k11 = P2(p1[i-1] , p2[i-1] , c , d)
+    k1 = fP1(p1[i-1] , p2[i-1] , a , b)
+    k11 = fP2(p1[i-1] , p2[i-1] , c , d)
     
     
-    k2 = P1(p1[i-1] + h/2.0*k1 , p2[i-1] , a , b)
-    k22 = P2(p1[i-1] , p2[i-1] + h/2.0*k11 , c , d)
+    k2 = fP1(p1[i-1] + h/2.0*k1 , p2[i-1] +h/2*k11, a , b)
+    k22 = fP2(p1[i-1] +h/2*k1, p2[i-1] + h/2.0*k11 , c , d)
     
     
-    k3 = P1(p1[i-1] + h/2.0*k2 , p2[i-1] , a , b)
-    k33 = P2(p1[i-1] , p2[i-1] + h/2.0*k22 , c , d)
+    k3 = fP1(p1[i-1] + h/2.0*k2 , p2[i-1]+h/2*k22 , a , b)
+    k33 = fP2(p1[i-1]+h/2*k2 , p2[i-1] + h/2.0*k22 , c , d)
     
     
-    k4 = P1(p1[i-1] + h*k3 , p2[i-1] , a , b)
-    k44 = P2(p1[i-1] , p2[i-1] + h*k33 , c , d)
+    k4 = fP1(p1[i-1] + h*k3 , p2[i-1]+h*k33 , a , b)
+    k44 = fP2(p1[i-1]+h*k3 , p2[i-1] + h*k33 , c , d)
     
     
     p1[i] = p1[i-1] + h/6.0*(k1 + 2.0*k2 + 2.0*k3 + k4)
