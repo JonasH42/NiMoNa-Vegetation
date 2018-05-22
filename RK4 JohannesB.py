@@ -18,7 +18,7 @@ p0=[p10,p20]
 
 def rb(bestände,t):
     p1,p2=bestände
-    return np.array([ p1*(0.8-0.2*p2) , -p2*(0.8 - 0.0002*p1) ]) 
+    return np.array([ p1*(2.0-0.02*p2) , -p2*(0.8 - 0.0002*p1) ]) 
 
 def rungekutta(rb,Tend,p0):
     p = p0  
@@ -35,7 +35,7 @@ def rungekutta(rb,Tend,p0):
 
 #Plot Befehle
 plt.xlabel('Räuber')
-rungekutta(rb,5,p0)
+rungekutta(rb,Tend,p0)
 plt.ylabel('Beute')
 plt.show()
     
