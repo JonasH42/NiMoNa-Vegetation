@@ -6,7 +6,7 @@ class RBM:
     def __init__(self):
         NaN = np.NaN
         self.h = 0.025
-        self.N_t = 4900
+        self.N_t = 30000
         self.eps1 = 2.
         self.eps2 = 0.8
         self.gamma1 = 0.02
@@ -32,7 +32,7 @@ class RBM:
         for i in range(0,j):
             summe = summe + self.h*self.c[j][i]*k[i] 
     
-        return f(x + summe,x2) 
+        return f(x + summe,x2 + summe) 
     
     
     def run(self):
@@ -62,9 +62,11 @@ class RBM:
 
 
 rbm = RBM()
+f = plt.figure()
 p1,p2,t = rbm.run()
-#plt.plot(p1,p2)
-plt.plot(t,p1)
+plt.plot(p1,p2)
+#plt.plot(t,p1)
 #plt.plot(t,p2)
+
 plt.show()
-    
+f.savefig('p1gegenp2.png')
