@@ -1,4 +1,4 @@
-%#Fischer Gleichung in 1D
+#Fischer Gleichung in 1D
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -29,7 +29,7 @@ h = 0.005
 L_x = 4*np.pi
 L_y = 4*np.pi
 mu = 0.01
-gammer = 1
+gammar = 1
 sigma = 1
 
 #Funktionen in denen Werte reingeschrieben werden
