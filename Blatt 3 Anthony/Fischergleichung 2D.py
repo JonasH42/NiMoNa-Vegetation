@@ -1,4 +1,4 @@
-#Fischer Gleichung in 1D
+%#Fischer Gleichung in 1D
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -58,11 +58,11 @@ for i in range(1,N_t):
 #Plotten
 plt.ion() 
 for i in range(N_t):
-    if i%10 == 0:#Modulo somit Bewegung
+    #if i%10 == 0:#Modulo somit Bewegung
         plt.cla()
         plt.plot(x,nk[i])#Ortsbewegung
         plt.draw()
-        
+        plt.pause(1)
         
         
 #Ende
